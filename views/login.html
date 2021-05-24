@@ -1,0 +1,30 @@
+<form action="/login" method="post">
+    <input type="text" name="userid">
+    <input type="password" name="userpw">
+    <input type="submit" value="로그인">
+</form>
+
+<button id="req">요청테스트</button>
+<span class="root">
+</span>
+<!-- axios -->
+<script type="text/javascript">
+    const btn = document.querySelector('#req');
+    btn.addEventListener('click',()=>{
+        console.log('req click!');
+        // 첫번째 인자값,두번째 인자값은 options -> object
+        fetch('http://localhost:3000/login2',{
+            method:'GET',
+        }) // Promise Object 
+        .then(data=>{
+            console.log(data); // 처리결과 객체를 반환 
+            return data.json();
+        })
+        .then(json=>{
+            console.log(json);
+            //json.test // ok 
+            const root = document.querySelector('.root');
+            root.innerHTML = json.text;
+        })
+    })
+</script>

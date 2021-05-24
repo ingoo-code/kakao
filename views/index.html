@@ -1,0 +1,19 @@
+
+
+
+{% if logininfo == undefined %}
+    <!-- 로그인이 처리가 안됬을경우.-->
+    <a href="/login">로그인</a>
+    <a href="/auth/kakao">카카오로그인</a>
+{% else %}
+    <!-- 로그인이 처리가 완료되었을 경우-->
+    <a href="/auth/info">회원정보</a>
+    <a href="/auth/logout">로그아웃</a>
+    <!--a href="/auth/kakao/unlink">카카오 탈퇴</a-->
+{% endif%}
+
+{% if msg %}
+<script type="text/javascript">
+    alert("{{msg}}")
+</script>
+{% endif %}
